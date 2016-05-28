@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeatherOptimChallenge</string>
+    <string name="zipcode_prompt">Enter your ZipCode</string>
 </resources>

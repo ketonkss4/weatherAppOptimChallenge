@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:layout_gravity="bottom"
+    android:background="@android:color/holo_orange_light"
+    android:clipToPadding="true"
+    android:padding="16dp"
+    android:weightSum="1"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+
+    <TextView
+        android:id="@+id/city_name"
+        android:layout_width="156dp"
+        android:layout_height="32dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        tools:text="San Fransisco" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="178dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@id/city_name"
+        android:layout_toRightOf="@id/city_name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        tools:text="Last updated on May 28, 12:34pm" />
+
+    <ImageView
+        android:id="@+id/condition_icon"
+        android:layout_width="112dp"
+        android:layout_height="112dp"
+        android:layout_below="@id/city_name"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:layout_toEndOf="@id/condition_icon"
+        android:layout_toRightOf="@id/condition_icon"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        tools:text="Clear" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/condition"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@id/condition_icon"
+        android:layout_toRightOf="@id/condition_icon"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        tools:text="98 C" />
+
+    <TextView
+        android:id="@+id/humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/temp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@id/condition_icon"
+        android:layout_toRightOf="@id/condition_icon"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+</RelativeLayout>

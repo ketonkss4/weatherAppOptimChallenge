@@ -8,8 +8,8 @@ public class Location {
     String country;
     String state;
     String city;
-    String latitude;
-    String longitude;
+    Double latitude;
+    Double longitude;
     String zip;
 
     public String getCountry() {
@@ -24,11 +24,11 @@ public class Location {
         return city;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 

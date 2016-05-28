@@ -1,14 +1,15 @@
 package com.demo.weatheroptimchallenge.networking;
 
-import android.content.Context;
-
 import com.demo.weatheroptimchallenge.models.Condition;
+import com.demo.weatheroptimchallenge.models.Observation;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
+import retrofit2.http.Path;
 import rx.Observable;
 
 /**
@@ -21,10 +22,21 @@ public class MainService {
     private NetworkService mNetworkService;
 
     public MainService() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+// set your desired log level
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+// add your other interceptors …
+
+// add logging as last interceptor
+        httpClient.addInterceptor(logging);// <-- this is the important line!
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API_BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(httpClient.build())
                 .build();
 
         mNetworkService = retrofit.create(NetworkService.class);
@@ -32,9 +44,9 @@ public class MainService {
 
     private interface NetworkService {
 
-        @GET("conditions")
+        @GET("conditions/q/CA/{zip}")
         Observable<Condition> requestCurrentCondition(
-                @Query("CA") String zip);
+                @Path("zip") String zip);
 
     }
 
